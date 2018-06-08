@@ -1,29 +1,3 @@
-
-// var Enemy = function() {
-//     // Variables applied to each of our instances go here,
-//     // we've provided one for you to get started
-
-//     // The image/sprite for our enemies, this uses
-//     // a helper we've provided to easily load images
-//     this.sprite = 'images/enemy-bug.png';
-// };
-
-// // Update the enemy's position, required method for game
-// // Parameter: dt, a time delta between ticks
-// Enemy.prototype.update = function(dt) {
-//     // You should multiply any movement by the dt parameter
-//     // which will ensure the game runs at the same speed for
-//     // all computers.
-//     this.x = (this.x + 10) * dt;
-// };
-
-// // Draw the enemy on the screen, required method for game
-// Enemy.prototype.render = function() {
-//     this.x = 0;
-//     this.y = 200;
-//     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-// };
-
 // Enemies our player must avoid
 class Enemy {
     constructor(xPos, yPos) {
@@ -33,15 +7,23 @@ class Enemy {
         this.y = yPos;
 
         // The image/sprite for our enemies, this uses
+        // Parameter: dt, a time delta between ticks
         this.sprite = 'images/enemy-bug.png';
     }
 
+    // Update the enemy's position, required method for game
     update(dt) {
-        this.x = (this.x + 10) * dt;
+        this.x = this.x + 800 * dt;
     }
 
     render() {
+        // Draw the enemy on the screen
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+
+        // if enemy goes off screen, reset.
+        if (this.x > 600) {
+            this.x = this.x -1000;
+        }
     }
 }
 
@@ -114,8 +96,9 @@ const enemy1 = new Enemy(1, 140);
 const enemy2 = new Enemy(1, 230);
 const enemy3 = new Enemy(1, 55);
 
-
 const allEnemies = [enemy1, enemy2, enemy3];
+console.log(allEnemies);
+
 const player = new Player();
 
 // This listens for key presses and sends the keys to your
