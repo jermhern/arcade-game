@@ -1,3 +1,7 @@
 body {
     text-align: center;
 }
+
+#level-text {
+	font-family: 'Press Start 2P', cursive;
+}
