@@ -22,7 +22,7 @@ class Enemy {
         player.y < this.y + 60 &&
         60 + player.y > this.y) {
 
-            // respawn when hit by bug
+            // respawn when player hit by bug (Enemy)
             player.x = 200;
             player.y = 370;
 
@@ -30,6 +30,8 @@ class Enemy {
             // dont go under level 0
             if (level > 0) {
                 level--;
+
+                document.querySelector('#level-number').innerHTML = level;
             }
         };
     }
@@ -107,7 +109,7 @@ class Player {
             // increase level count on successful completion
             level++;
 
-            console.log(level);
+           document.querySelector('#level-number').innerHTML = level;
         }
     }
 }
@@ -116,9 +118,9 @@ class Player {
 
 
 // pass in xPos, Ypos, and speed for new Enemy instance
-const enemy1 = new Enemy(-200, 230, 10);
-const enemy2 = new Enemy(0, 140, 25);
-const enemy3 = new Enemy(-150, 55, 10);
+const enemy1 = new Enemy(-300, 230, 10);
+const enemy2 = new Enemy(0, 140, 15);
+const enemy3 = new Enemy(-10, 55, 10);
 
 // Place all enemy objects in an array called allEnemies
 const allEnemies = [enemy1, enemy2, enemy3];
