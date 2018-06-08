@@ -43,7 +43,21 @@ class Player {
     }
 
     handleInput(allowedKeys) {
+        if (allowedKeys === 'up') {
+            this.y = this.y - 100;
+        }
 
+        else if (allowedKeys === 'down') {
+            this.y = this.y + 100;
+        }
+
+        else if (allowedKeys === 'left') {
+            this.x = this.x - 100;
+        }
+
+        else if (allowedKeys === 'right') {
+            this.x = this.x + 100;
+        }
     }
 }
 
