@@ -129,7 +129,7 @@ const allEnemies = [enemy1, enemy2, enemy3];
 const player = new Player();
 
 // level variable, initialized once
-let level = 0;
+let level = 1;
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
