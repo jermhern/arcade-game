@@ -1,28 +1,50 @@
+
+// var Enemy = function() {
+//     // Variables applied to each of our instances go here,
+//     // we've provided one for you to get started
+
+//     // The image/sprite for our enemies, this uses
+//     // a helper we've provided to easily load images
+//     this.sprite = 'images/enemy-bug.png';
+// };
+
+// // Update the enemy's position, required method for game
+// // Parameter: dt, a time delta between ticks
+// Enemy.prototype.update = function(dt) {
+//     // You should multiply any movement by the dt parameter
+//     // which will ensure the game runs at the same speed for
+//     // all computers.
+//     this.x = (this.x + 10) * dt;
+// };
+
+// // Draw the enemy on the screen, required method for game
+// Enemy.prototype.render = function() {
+//     this.x = 0;
+//     this.y = 200;
+//     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+// };
+
 // Enemies our player must avoid
-var Enemy = function() {
-    // Variables applied to each of our instances go here,
-    // we've provided one for you to get started
+class Enemy {
+    constructor(xPos, yPos) {
+        
+        // pass in new xPos and Ypos for unique enemy position
+        this.x = xPos;
+        this.y = yPos;
 
-    // The image/sprite for our enemies, this uses
-    // a helper we've provided to easily load images
-    this.sprite = 'images/enemy-bug.png';
-};
+        // The image/sprite for our enemies, this uses
+        this.sprite = 'images/enemy-bug.png';
+    }
 
-// Update the enemy's position, required method for game
-// Parameter: dt, a time delta between ticks
-Enemy.prototype.update = function(dt) {
-    // You should multiply any movement by the dt parameter
-    // which will ensure the game runs at the same speed for
-    // all computers.
-    this.x = (this.x + 10) * dt;
-};
+    update(dt) {
+        this.x = (this.x + 10) * dt;
+    }
 
-// Draw the enemy on the screen, required method for game
-Enemy.prototype.render = function() {
-    this.x = 1;
-    this.y = 500;
-    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-};
+    render() {
+        ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+    }
+}
+
 
 // Now write your own player class
 // This class requires an update(), render() and
@@ -61,9 +83,8 @@ class Player {
                 break
         }
 
-        console.log("x: " + this.x, "y: " + this.y)
-
         // prevent player from exiting the x-axis
+        // used switch to shorten code
         switch(this.x) {
             case -100:
                this.x = this.x + 100;
@@ -89,7 +110,12 @@ class Player {
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
-const allEnemies = [];
+const enemy1 = new Enemy(1, 140);
+const enemy2 = new Enemy(1, 230);
+const enemy3 = new Enemy(1, 55);
+
+
+const allEnemies = [enemy1, enemy2, enemy3];
 const player = new Player();
 
 // This listens for key presses and sends the keys to your
