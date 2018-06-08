@@ -2,19 +2,28 @@
 class Enemy {
     constructor(xPos, yPos, speed) {
         
-        // pass in new xPos and Ypos for unique enemy position
+        // pass in new xPos, Ypos and speed for unique enemy position
         this.x = xPos;
         this.y = yPos;
         this.speed = speed;
 
-        // The image/sprite for our enemies, this uses
-        // Parameter: dt, a time delta between ticks
+        // The image/sprite for our enemies
         this.sprite = 'images/enemy-bug.png';
     }
 
+    // Parameter: dt, a time delta between ticks
     // Update the enemy's position, required method for game
     update(dt) {
-        this.x = this.x + (this.speed * 40 * dt);
+        this.x = this.x + (this.speed * 40 * dt) + 1;
+
+        // collison detection
+        if (player.x < this.x + 80 &&
+        player.x + 80 > this.x &&
+        player.y < this.y + 60 &&
+        60 + player.y > this.y) {
+            player.x = 200;
+            player.y = 370;
+        };
     }
 
     render() {
@@ -37,10 +46,11 @@ class Player {
         this.sprite = 'images/char-boy.png';
         this.x = 200;
         this.y = 370;
+
+        
     }
 
     update() {
-        
     }
 
     render() {
@@ -97,7 +107,7 @@ class Player {
 // pass in xPos, Ypos, and speed for new Enemy instance
 const enemy1 = new Enemy(-200, 230, 10);
 const enemy2 = new Enemy(0, 140, 25);
-const enemy3 = new Enemy(-200, 55, 15);
+const enemy3 = new Enemy(-150, 55, 10);
 const allEnemies = [enemy1, enemy2, enemy3];
 
 const player = new Player();
