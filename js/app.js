@@ -14,7 +14,7 @@ class Enemy {
     // Parameter: dt, a time delta between ticks
     // Update the enemy's position, required method for game
     update(dt) {
-        this.x = this.x + (this.speed * 40 * dt) + 1;
+        this.x = this.x + (this.speed * 30 * dt) + 1;
 
         // collison detection
         if (player.x < this.x + 80 &&
@@ -27,7 +27,10 @@ class Enemy {
             player.y = 370;
 
             // decrease level count on player contact with bug
-            level--;
+            // dont go under level 0
+            if (level > 0) {
+                level--;
+            }
         };
     }
 
