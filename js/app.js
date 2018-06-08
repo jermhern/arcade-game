@@ -31,7 +31,7 @@ class Player {
     constructor() {
         this.sprite = 'images/char-boy.png';
         this.x = 200;
-        this.y = 390;
+        this.y = 370;
     }
 
     update() {
@@ -43,22 +43,6 @@ class Player {
     }
 
     handleInput(allowedKeys) {
-        // if (allowedKeys === 'up') {
-        //     this.y = this.y - 100;
-        // }
-
-        // else if (allowedKeys === 'down') {
-        //     this.y = this.y + 100;
-        // }
-
-        // else if (allowedKeys === 'left') {
-        //     this.x = this.x - 100;
-        // }
-
-        // else if (allowedKeys === 'right') {
-        //     this.x = this.x + 100;
-        // }
-
         switch(allowedKeys) {
             case 'up':
                 this.y = this.y - 100;
@@ -72,6 +56,12 @@ class Player {
             case 'right':
                 this.x = this.x + 100;
                 break
+        }
+        console.log(this.y);
+
+        if (this.y === -30) {
+            this.x = 200;
+            this.y = 370;
         }
     }
 }
