@@ -43,6 +43,9 @@ class Player {
     }
 
     handleInput(allowedKeys) {
+
+        // allowedKeys returns 'up', 'left', 'right', 'down'
+        // when a case has matched sprite changes position
         switch(allowedKeys) {
             case 'up':
                 this.y = this.y - 100;
@@ -57,8 +60,25 @@ class Player {
                 this.x = this.x + 100;
                 break
         }
-        console.log(this.y);
 
+        console.log("x: " + this.x, "y: " + this.y)
+
+        // prevent player from exiting the x-axis
+        switch(this.x) {
+            case -100:
+               this.x = this.x + 100;
+               break;
+            case 500:
+                this.x = this.x - 100;
+                break; 
+        }
+
+        // prevent player from moving down from spawn
+        if(this.y === 470) {
+            this.y = this.y - 100;
+        }
+
+        // when player reaches water reset to spawn position
         if (this.y === -30) {
             this.x = 200;
             this.y = 370;
