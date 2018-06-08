@@ -1,10 +1,11 @@
 // Enemies our player must avoid
 class Enemy {
-    constructor(yPos) {
+    constructor(xPos, yPos, speed) {
         
         // pass in new xPos and Ypos for unique enemy position
-        this.x = Math.floor(Math.random() * 1) - 15;
+        this.x = xPos;
         this.y = yPos;
+        this.speed = speed;
 
         // The image/sprite for our enemies, this uses
         // Parameter: dt, a time delta between ticks
@@ -13,7 +14,7 @@ class Enemy {
 
     // Update the enemy's position, required method for game
     update(dt) {
-        this.x = this.x + Math.floor(Math.random() * 50 * dt) + 20;
+        this.x = this.x + (this.speed * 40 * dt);
     }
 
     render() {
@@ -22,7 +23,7 @@ class Enemy {
 
         // if enemy goes off screen, reset.
         if (this.x > 600) {
-            this.x = this.x -1000;
+            this.x = this.x - 1000;
         }
     }
 }
@@ -93,10 +94,10 @@ class Player {
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
 
-// pass in Ypos for new Enemy instance
-const enemy1 = new Enemy(140);
-const enemy2 = new Enemy(230);
-const enemy3 = new Enemy(55);
+// pass in xPos, Ypos, and speed for new Enemy instance
+const enemy1 = new Enemy(-200, 230, 10);
+const enemy2 = new Enemy(0, 140, 25);
+const enemy3 = new Enemy(-200, 55, 15);
 const allEnemies = [enemy1, enemy2, enemy3];
 
 const player = new Player();
