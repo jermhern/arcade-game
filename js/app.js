@@ -1,9 +1,9 @@
 // Enemies our player must avoid
 class Enemy {
-    constructor(xPos, yPos) {
+    constructor(yPos) {
         
         // pass in new xPos and Ypos for unique enemy position
-        this.x = xPos;
+        this.x = Math.floor(Math.random() * 1) - 15;
         this.y = yPos;
 
         // The image/sprite for our enemies, this uses
@@ -13,7 +13,7 @@ class Enemy {
 
     // Update the enemy's position, required method for game
     update(dt) {
-        this.x = this.x + 800 * dt;
+        this.x = this.x + Math.floor(Math.random() * 50 * dt) + 20;
     }
 
     render() {
@@ -52,16 +52,16 @@ class Player {
         // when a case has matched sprite changes position
         switch(allowedKeys) {
             case 'up':
-                this.y = this.y - 100;
+                this.y = this.y - 50;
                 break;
             case 'down':
-                this.y = this.y + 100;
+                this.y = this.y + 50;
                 break;
             case 'left':
-                this.x = this.x - 100;
+                this.x = this.x - 50;
                 break;
             case 'right':
-                this.x = this.x + 100;
+                this.x = this.x + 50;
                 break
         }
 
@@ -69,16 +69,16 @@ class Player {
         // used switch to shorten code
         switch(this.x) {
             case -100:
-               this.x = this.x + 100;
+               this.x = this.x + 50;
                break;
             case 500:
-                this.x = this.x - 100;
+                this.x = this.x - 50;
                 break; 
         }
 
         // prevent player from moving down from spawn
         if(this.y === 470) {
-            this.y = this.y - 100;
+            this.y = this.y - 50;
         }
 
         // when player reaches water reset to spawn position
@@ -92,12 +92,12 @@ class Player {
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
-const enemy1 = new Enemy(1, 140);
-const enemy2 = new Enemy(1, 230);
-const enemy3 = new Enemy(1, 55);
 
+// pass in Ypos for new Enemy instance
+const enemy1 = new Enemy(140);
+const enemy2 = new Enemy(230);
+const enemy3 = new Enemy(55);
 const allEnemies = [enemy1, enemy2, enemy3];
-console.log(allEnemies);
 
 const player = new Player();
 
