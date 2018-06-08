@@ -21,8 +21,13 @@ class Enemy {
         player.x + 80 > this.x &&
         player.y < this.y + 60 &&
         60 + player.y > this.y) {
+
+            // respawn when hit by bug
             player.x = 200;
             player.y = 370;
+
+            // decrease level count on player contact with bug
+            level--;
         };
     }
 
@@ -46,11 +51,10 @@ class Player {
         this.sprite = 'images/char-boy.png';
         this.x = 200;
         this.y = 370;
-
-        
     }
 
     update() {
+        this.x = this.x;
     }
 
     render() {
@@ -96,21 +100,31 @@ class Player {
         if (this.y === -30) {
             this.x = 200;
             this.y = 370;
+
+            // increase level count on successful completion
+            level++;
+
+            console.log(level);
         }
     }
 }
 
-// Now instantiate your objects.
-// Place all enemy objects in an array called allEnemies
-// Place the player object in a variable called player
+
+
 
 // pass in xPos, Ypos, and speed for new Enemy instance
 const enemy1 = new Enemy(-200, 230, 10);
 const enemy2 = new Enemy(0, 140, 25);
 const enemy3 = new Enemy(-150, 55, 10);
+
+// Place all enemy objects in an array called allEnemies
 const allEnemies = [enemy1, enemy2, enemy3];
 
+// Place the player object in a variable called player
 const player = new Player();
+
+// level variable, initialized once
+let level = 0;
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
