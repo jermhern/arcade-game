@@ -27,10 +27,14 @@ class Enemy {
             player.y = 370;
 
             // decrease level count on player contact with bug
-            // dont go under level 0
-            if (level > 0) {
+            // dont go under level 1
+            if (level > 1) {
                 level--;
 
+                // lower bug speed when lose level
+                this.speed = this.speed - 5;
+
+                // update level number on screen
                 document.querySelector('#level-number').innerHTML = level;
             }
         };
@@ -109,6 +113,12 @@ class Player {
             // increase level count on successful completion
             level++;
 
+            // make every enemy a little faster
+            for (const enemy of allEnemies) {
+                enemy.speed = enemy.speed + 5;
+            }
+
+           // update level number on screen
            document.querySelector('#level-number').innerHTML = level;
         }
     }
