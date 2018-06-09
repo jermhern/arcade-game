@@ -138,7 +138,7 @@ class Player {
         // if winner beats the game
         if (level === 10) {
             document.querySelector('.modal').classList.add('show-modal');
-
+            document.querySelector('.clicks').innerHTML = clicks;
             document.querySelector('.restart').addEventListener('click', function() {
                 location.reload();
             });
