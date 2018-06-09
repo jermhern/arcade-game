@@ -32,7 +32,10 @@ class Enemy {
                 level--;
 
                 // lower bug speed when lose level
-                this.speed = this.speed - 5;
+                this.speed = this.speed - 2;
+
+                // audio when player losses level
+                loss.play();
 
                 // update level number on screen
                 document.querySelector('#level-number').innerHTML = level;
@@ -113,9 +116,12 @@ class Player {
             // increase level count on successful completion
             level++;
 
+            // audio when player gets passed level
+            point.play();
+
             // make every enemy a little faster
             for (const enemy of allEnemies) {
-                enemy.speed = enemy.speed + 5;
+                enemy.speed = enemy.speed + 2;
             }
 
            // update level number on screen
@@ -125,7 +131,9 @@ class Player {
 }
 
 
-
+// audio
+const point = new Audio('./mp3/point.wav');
+const loss = new Audio('./mp3/loss.wav');
 
 // pass in xPos, Ypos, and speed for new Enemy instance
 const enemy1 = new Enemy(-300, 230, 10);
