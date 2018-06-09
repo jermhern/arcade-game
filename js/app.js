@@ -130,9 +130,13 @@ class Player {
            // update level number on screen
            document.querySelector('#level-number').innerHTML = level;
         }
+
+        // if winner beats the game
+        if (level === 10) {
+            document.querySelector('.modal').classList.add('show-modal');
+        }
     }
 }
-
 
 // audio files
 const point = new Audio('./mp3/point.wav');
@@ -151,6 +155,11 @@ const player = new Player();
 
 // level variable, initialized once
 let level = 1;
+
+const modal = document.querySelector(".modal");
+const trigger = document.querySelector(".trigger");
+const closeButton = document.querySelector(".close-button");
+
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
