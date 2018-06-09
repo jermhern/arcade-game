@@ -2,6 +2,6 @@ body {
     text-align: center;
 }
 
-#level-text {
+#level-text, h1 {
 	font-family: 'Press Start 2P', cursive;
 }

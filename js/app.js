@@ -139,7 +139,7 @@ const point = new Audio('./mp3/point.wav');
 const loss = new Audio('./mp3/loss.wav');
 
 // pass in xPos, Ypos, and speed for new Enemy instance
-const enemy1 = new Enemy(-300, 230, 5);
+const enemy1 = new Enemy(-100, 230, 5);
 const enemy2 = new Enemy(0, 140, 10);
 const enemy3 = new Enemy(-10, 55, 5);
 
