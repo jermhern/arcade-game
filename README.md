@@ -1,4 +1,4 @@
-frontend-nanodegree-arcade-game
+Bugger - JavaScript Game 
 ===============================
 
 HOW TO PLAY
