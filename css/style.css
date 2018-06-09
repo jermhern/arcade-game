@@ -40,4 +40,5 @@ body {
 .restart {
 	padding: 5px;
 	background-color: #376437;
+	cursor: pointer;
 }
