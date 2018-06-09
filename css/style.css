@@ -19,20 +19,6 @@ body {
 	transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
 }
 
-.close-button {
-	float: right;
-	width: 1.5rem;
-	line-height: 1.5rem;
-	text-align: center;
-	cursor: pointer;
-	border-radius: 0.25rem;
-	background-color: darkgray;
-}
-
-.close-buton:hover {
-	background-color: darkgray;
-}
-
 .show-modal{
 	opacity: 1;
 	visibility: visible;
@@ -49,4 +35,9 @@ body {
 	padding: 1rem 1.5rem;
 	width: 24rem;
 	border-radius: 0.5rem;
+}
+
+.restart {
+	padding: 5px;
+	background-color: #376437;
 }

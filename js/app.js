@@ -83,15 +83,19 @@ class Player {
         switch(allowedKeys) {
             case 'up':
                 this.y = this.y - 50;
+                clicks++;
                 break;
             case 'down':
                 this.y = this.y + 50;
+                clicks++;
                 break;
             case 'left':
                 this.x = this.x - 50;
+                clicks++;
                 break;
             case 'right':
                 this.x = this.x + 50;
+                clicks++;
                 break
         }
 
@@ -134,6 +138,11 @@ class Player {
         // if winner beats the game
         if (level === 10) {
             document.querySelector('.modal').classList.add('show-modal');
+
+            document.querySelector('.restart').addEventListener('click', function() {
+                location.reload();
+            });
+            // insert timer information
         }
     }
 }
@@ -156,10 +165,8 @@ const player = new Player();
 // level variable, initialized once
 let level = 1;
 
-const modal = document.querySelector(".modal");
-const trigger = document.querySelector(".trigger");
-const closeButton = document.querySelector(".close-button");
-
+// keep track of clicks to show user 
+let clicks = 0;
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
