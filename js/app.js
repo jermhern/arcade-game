@@ -32,7 +32,10 @@ class Enemy {
                 level--;
 
                 // lower bug speed when lose level
-                this.speed = this.speed - 2;
+                // make every enemy a little faster
+                for (const enemy of allEnemies) {
+                    enemy.speed = enemy.speed - 2;
+                }
 
                 // audio when player losses level
                 loss.play();
@@ -131,14 +134,14 @@ class Player {
 }
 
 
-// audio
+// audio files
 const point = new Audio('./mp3/point.wav');
 const loss = new Audio('./mp3/loss.wav');
 
 // pass in xPos, Ypos, and speed for new Enemy instance
-const enemy1 = new Enemy(-300, 230, 10);
-const enemy2 = new Enemy(0, 140, 15);
-const enemy3 = new Enemy(-10, 55, 10);
+const enemy1 = new Enemy(-300, 230, 5);
+const enemy2 = new Enemy(0, 140, 5);
+const enemy3 = new Enemy(-10, 55, 5);
 
 // Place all enemy objects in an array called allEnemies
 const allEnemies = [enemy1, enemy2, enemy3];
