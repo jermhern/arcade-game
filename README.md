@@ -32,3 +32,12 @@ bugs will speed up every level
 
 fun sounds on death/level pass!
 
+HOW TO PLAY OFFLINE
+===================
+go to the arcade-game repo and click download zip
+
+unzip the file
+
+open index.html
+
+play!
